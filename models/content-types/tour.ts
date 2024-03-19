@@ -86,15 +86,7 @@ export type Tour = IContentItem<{
      * Id: 75d9d13f-0103-46ac-b644-bb044bcc57f6
      * Codename: tour_duration_in_days
      */
-    tourDurationInDays: Elements.NumberElement;
-
-    /**
-     * Tour Intro (rich_text)
-     * Required: true
-     * Id: 6623fbb4-aec7-4cd6-88a6-bcbee95b151e
-     * Codename: tour_intro
-     */
-    tourIntro: Elements.RichTextElement;
+    tourDurationInDays: Elements.NumberElement; 
 
     /**
      * Tour Title (text)
