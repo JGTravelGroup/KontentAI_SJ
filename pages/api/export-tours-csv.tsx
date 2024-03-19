@@ -32,11 +32,7 @@ export default async function handler(req, res) {
     {
       label: 'Description',
       value: 'description'
-    },  
-    {
-      label: 'Reader Offer Intro 2',
-      value: 'readerone'
-    },  
+    }, 
     {
       label: 'Includes',
       value: 'includes'
@@ -84,6 +80,18 @@ export default async function handler(req, res) {
     {
       label: 'Optional excursion price',
       value: 'optionalexcursionprice'
+    },  
+    {
+      label: 'Tour Type',
+      value: 'tourtype'
+    },    
+    {
+      label: 'Reader Offer Intro 2',
+      value: 'readeroffertwo'
+    },   
+    {
+      label: 'Reader Offer Intro 3',
+      value: 'readerofferthree'
     }
   ];
 
@@ -123,7 +131,6 @@ function fetchContentItems(tour: Tour) {
   return {
     tourName: tour.elements.tourTitle.value,
     description: tour.elements.tourIntro.value,
-    readerone: tour.elements.readerOfferIntro2.value,
     includes: tour.elements.untitledRichText.value,
     duration: tour.elements.tourDurationInDays.value,
     // months: `${startMonth} - ${endMonth}`,
@@ -136,6 +143,9 @@ function fetchContentItems(tour: Tour) {
     includedexcursiondescription: tour.elements.includedExcursions.linkedItems[0]?.elements.description.value,
     optionalexcursion: `${tour.elements.optionalExcursionS.linkedItems[0]?.elements.description.value} (${tour.elements.optionalExcursionS.linkedItems[0]?.elements.durationHalfDayFullDay.value})`,
     optionalexcursiondescription: tour.elements.optionalExcursionS.linkedItems[0]?.elements.description.value,
-    optionalexcursionprice: tour.elements.optionalExcursionS.linkedItems[0]?.elements.priceInPp.value
+    optionalexcursionprice: tour.elements.optionalExcursionS.linkedItems[0]?.elements.priceInPp.value,
+    tourtype: tour.elements.tourType.value,
+    readeroffertwo: tour.elements.readerOfferIntro2.value,
+    readerofferthree: tour.elements.readerOfferIntro3.value
   }
 }
