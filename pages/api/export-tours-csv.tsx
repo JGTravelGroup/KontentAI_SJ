@@ -34,18 +34,6 @@ export default async function handler(req, res) {
       value: 'description'
     },  
     {
-      label: 'Tour Type',
-      value: 'tourtype'
-    }, 
-    {
-      label: 'Reader Offer Intro 2',
-      value: 'readerofferintro2'
-    }, 
-    {
-      label: 'Reader Offer Intro 3',
-      value: 'readerofferintro3'
-    },
-    {
       label: 'Includes',
       value: 'includes'
     },
@@ -131,9 +119,6 @@ function fetchContentItems(tour: Tour) {
   return {
     tourName: tour.elements.tourTitle.value,
     description: tour.elements.tourIntro.value,
-    tourtype: tour.elements.tourtype.value,
-    readerofferintro2: tour.elements.readerofferintro2.value,
-    readerofferintro3: tour.elements.readerofferintro3.value,
     includes: tour.elements.untitledRichText.value,
     duration: tour.elements.tourDurationInDays.value,
     // months: `${startMonth} - ${endMonth}`,
