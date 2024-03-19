@@ -70,7 +70,7 @@ export type Tour = IContentItem<{
      * Tour type (multiple_choice) 
      * Codename: tour_type
      */
-    tourType: Elements.MultipleChoice;
+    tourType: Elements.MultipleChoiceElement;
 
     /**
      * Tour Intro (rich_text)
