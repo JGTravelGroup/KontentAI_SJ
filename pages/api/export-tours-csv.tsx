@@ -82,10 +82,6 @@ export default async function handler(req, res) {
       value: 'optionalexcursionprice'
     }, 
     {
-      label: 'Tour Type',
-      value: 'tourtype'
-    }, 
-    {
       label: 'Reader Offer Intro 2',
       value: 'readerofferintro2'
     }, 
@@ -144,7 +140,6 @@ function fetchContentItems(tour: Tour) {
     optionalexcursion: `${tour.elements.optionalExcursionS.linkedItems[0]?.elements.description.value} (${tour.elements.optionalExcursionS.linkedItems[0]?.elements.durationHalfDayFullDay.value})`,
     optionalexcursiondescription: tour.elements.optionalExcursionS.linkedItems[0]?.elements.description.value,
     optionalexcursionprice: tour.elements.optionalExcursionS.linkedItems[0]?.elements.priceInPp.value,
-    tourtype: tour.elements.tourtype.value,
     readerofferintro2: tour.elements.readerofferintro2.value,
     readerofferintro3: tour.elements.readerofferintro3.value
   }
