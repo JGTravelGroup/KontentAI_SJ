@@ -67,6 +67,20 @@ export type Tour = IContentItem<{
     readerOfferIntro3: Elements.RichTextElement;
 
     /**
+     * Tour type (multiple_choice) 
+     * Codename: tour_type
+     */
+    tourType: Elements.MultipleChoice;
+
+    /**
+     * Tour Intro (rich_text)
+     * Required: true
+     * Id: 6623fbb4-aec7-4cd6-88a6-bcbee95b151e
+     * Codename: tour_intro
+     */
+    tourIntro: Elements.RichTextElement;
+
+    /**
      * Tour duration in days (number)
      * Required: false
      * Id: 75d9d13f-0103-46ac-b644-bb044bcc57f6
