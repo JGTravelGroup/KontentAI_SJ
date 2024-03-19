@@ -34,6 +34,10 @@ export default async function handler(req, res) {
       value: 'description'
     },  
     {
+      label: 'Reader Offer Intro 2',
+      value: 'readerone'
+    },  
+    {
       label: 'Includes',
       value: 'includes'
     },
@@ -119,6 +123,7 @@ function fetchContentItems(tour: Tour) {
   return {
     tourName: tour.elements.tourTitle.value,
     description: tour.elements.tourIntro.value,
+    readerone: tour.elements.Readerofferintro2.value,
     includes: tour.elements.untitledRichText.value,
     duration: tour.elements.tourDurationInDays.value,
     // months: `${startMonth} - ${endMonth}`,
