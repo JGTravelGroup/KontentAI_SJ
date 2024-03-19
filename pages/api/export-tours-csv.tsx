@@ -144,8 +144,8 @@ function fetchContentItems(tour: Tour) {
     optionalexcursion: `${tour.elements.optionalExcursionS.linkedItems[0]?.elements.description.value} (${tour.elements.optionalExcursionS.linkedItems[0]?.elements.durationHalfDayFullDay.value})`,
     optionalexcursiondescription: tour.elements.optionalExcursionS.linkedItems[0]?.elements.description.value,
     optionalexcursionprice: tour.elements.optionalExcursionS.linkedItems[0]?.elements.priceInPp.value,
-    tourName: tour.elements.tourtype.value,
-    tourName: tour.elements.readerofferintro2.value,
-    tourName: tour.elements.readerofferintro3.value
+    tourtype: tour.elements.tourtype.value,
+    readerofferintro2: tour.elements.readerofferintro2.value,
+    readerofferintro3: tour.elements.readerofferintro3.value
   }
 }
