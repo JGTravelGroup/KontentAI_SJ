@@ -32,6 +32,18 @@ export default async function handler(req, res) {
     {
       label: 'Description',
       value: 'description'
+    },  
+    {
+      label: 'Tour Type',
+      value: 'tourtype'
+    }, 
+    {
+      label: 'Reader Offer Intro 2',
+      value: 'readerofferintro2'
+    }, 
+    {
+      label: 'Reader Offer Intro 3',
+      value: 'readerofferintro3'
     },
     {
       label: 'Includes',
@@ -80,14 +92,6 @@ export default async function handler(req, res) {
     {
       label: 'Optional excursion price',
       value: 'optionalexcursionprice'
-    }, 
-    {
-      label: 'Reader Offer Intro 2',
-      value: 'readerofferintro2'
-    }, 
-    {
-      label: 'Reader Offer Intro 3',
-      value: 'readerofferintro3'
     }
   ];
 
@@ -127,6 +131,9 @@ function fetchContentItems(tour: Tour) {
   return {
     tourName: tour.elements.tourTitle.value,
     description: tour.elements.tourIntro.value,
+    tourtype: tour.elements.tourtype.value,
+    readerofferintro2: tour.elements.readerofferintro2.value,
+    readerofferintro3: tour.elements.readerofferintro3.value,
     includes: tour.elements.untitledRichText.value,
     duration: tour.elements.tourDurationInDays.value,
     // months: `${startMonth} - ${endMonth}`,
@@ -139,8 +146,6 @@ function fetchContentItems(tour: Tour) {
     includedexcursiondescription: tour.elements.includedExcursions.linkedItems[0]?.elements.description.value,
     optionalexcursion: `${tour.elements.optionalExcursionS.linkedItems[0]?.elements.description.value} (${tour.elements.optionalExcursionS.linkedItems[0]?.elements.durationHalfDayFullDay.value})`,
     optionalexcursiondescription: tour.elements.optionalExcursionS.linkedItems[0]?.elements.description.value,
-    optionalexcursionprice: tour.elements.optionalExcursionS.linkedItems[0]?.elements.priceInPp.value,
-    readerofferintro2: tour.elements.readerofferintro2.value,
-    readerofferintro3: tour.elements.readerofferintro3.value
+    optionalexcursionprice: tour.elements.optionalExcursionS.linkedItems[0]?.elements.priceInPp.value
   }
 }
