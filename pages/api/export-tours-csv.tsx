@@ -123,7 +123,7 @@ function fetchContentItems(tour: Tour) {
   return {
     tourName: tour.elements.tourTitle.value,
     description: tour.elements.tourIntro.value,
-    readerone: tour.elements.Readerofferintro2.value,
+    readerone: tour.elements.readerOfferIntro2.value,
     includes: tour.elements.untitledRichText.value,
     duration: tour.elements.tourDurationInDays.value,
     // months: `${startMonth} - ${endMonth}`,
