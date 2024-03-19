@@ -26,10 +26,6 @@ export default async function handler(req, res) {
   // Define the fields for the CSV file
   const fields = [
     {
-      label: 'Tour Number',
-      value: 'tourNumber'
-    },
-    {
       label: 'Tour Name',
       value: 'tourName'
     },
@@ -49,14 +45,6 @@ export default async function handler(req, res) {
       label: 'Days',
       value: 'duration'
     },    
-    {
-      label: 'Months',
-      value: 'months'
-    },
-    {
-      label: 'Price',
-      value: 'price'
-    },
     {
       label: 'Hotel name',
       value: 'hotelname'
