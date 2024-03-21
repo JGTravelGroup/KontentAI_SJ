@@ -11,8 +11,8 @@ interface IProps {
 export const ExportToursCustomElement: React.FC<IProps> = ({ element, context, value, handleSave }) => {
     return <>
         <div className="custom-element">
-            <div className="d-flex justify-content-center mb-3 p-1 py-5">
-                <a className="btn btn-xs btn-secondary" href={`https://exportcsv.vercel.app/api/export-tours-csv?codename=${context.item.codename}`}>Export all tours to CSV</a>
+            <div className="flex justify-content-center mb-3 p-1 py-5">
+                <a className="text-sm bg-grey-600 text-white py-1 px-3 rounded" href={`https://exportcsv.vercel.app/api/export-tours-csv?codename=${context.item.codename}`}>Export all tours to CSV</a>
             </div>
         </div>
     </>
