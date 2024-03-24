@@ -2,11 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-@import 'type';
-@import './components/hero-unit';
-@import './components/events';
-@import './products';
-
 // Modifying pre-flights base styles
 @layer base {
   html {
