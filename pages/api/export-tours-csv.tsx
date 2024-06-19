@@ -62,7 +62,7 @@ export default async function handler(req, res) {
       value: 'hotelrating'
     },    
     {
-      label: 'Included excursion',
+      label: 'Included Excursion',
       value: 'includedexcursion'
     }, 
     {
@@ -139,7 +139,7 @@ function fetchContentItems(tour: Tour) {
     hoteldescription: tour.elements.hotelS.linkedItems[0]?.elements.description.value,
     hotelaccessibility: tour.elements.hotelS.linkedItems[0]?.elements.accessibilityInformation.value,
     hotelrating: tour.elements.hotelS.linkedItems[0]?.elements.rating.value,
-    includedexcursion: `${tour.elements.includedExcursions.linkedItems[0]?.elements.description.value} (${tour.elements.includedExcursions.linkedItems[0]?.elements.durationHalfDayFullDay.value})`,
+    includedexcursion: tour.elements.includedExcursions.linkedItems[0]?.elements.destination.value,
     includedexcursiondescription: tour.elements.includedExcursions.linkedItems[0]?.elements.description.value,
     optionalexcursion: `${tour.elements.optionalExcursionS.linkedItems[0]?.elements.description.value} (${tour.elements.optionalExcursionS.linkedItems[0]?.elements.durationHalfDayFullDay.value})`,
     optionalexcursiondescription: tour.elements.optionalExcursionS.linkedItems[0]?.elements.description.value,
