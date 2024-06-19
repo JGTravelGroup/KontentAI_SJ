@@ -3,6 +3,7 @@ import { Parser } from 'json2csv';
 import { getTourByCodename } from '../../lib/services/kontentClient';
 import { defaultEnvId, defaultPreviewKey } from '../../lib/utils/env';
 import { Tour } from '../../models';
+import { formatDate, formatMonthsForLocale } from '../../lib/utils/dateTime';
 
 export default async function handler(req, res) {
   // Function to fetch content items and linked items from your CMS
@@ -26,15 +27,7 @@ export default async function handler(req, res) {
     {
       label: 'Description',
       value: 'description'
-    },
-    {
-      label: 'Reader offer intro 2',
-      value: 'readerOfferIntro2'
-    },
-    {
-      label: 'Reader offer intro 3',
-      value: 'readerOfferIntro3'
-    },
+    }, 
     {
       label: 'Includes',
       value: 'includes'
@@ -46,10 +39,54 @@ export default async function handler(req, res) {
     {
       label: 'Days',
       value: 'duration'
+    },    
+    {
+      label: 'Hotel name',
+      value: 'hotelname'
     },
     {
-      label: 'Hotels',
-      value: (row) => row.hotels.map((item) => item.hotelName).join(';')
+      label: 'Hotel description',
+      value: 'hoteldescription'
+    },
+    {
+      label: 'Hotel accessibility information',
+      value: 'hotelaccessibility'
+    },
+    {
+      label: 'Hotel rating',
+      value: 'hotelrating'
+    },    
+    {
+      label: 'Included Excursion',
+      value: 'includedexcursion'
+    }, 
+    {
+      label: 'Included excursion description',
+      value: 'includedexcursiondescription'
+    },    
+    {
+      label: 'Optional excursion',
+      value: 'optionalexcursion'
+    }, 
+    {
+      label: 'Optional excursion description',
+      value: 'optionalexcursiondescription'
+    }, 
+    {
+      label: 'Optional excursion price',
+      value: 'optionalexcursionprice'
+    },  
+    {
+      label: 'Tour Type',
+      value: 'tourtype'
+    },    
+    {
+      label: 'Reader Offer Intro 2',
+      value: 'readeroffertwo'
+    },   
+    {
+      label: 'Reader Offer Intro 3',
+      value: 'readerofferthree'
     }
   ];
 
@@ -71,24 +108,38 @@ export default async function handler(req, res) {
   }
 }
 
+
+export function getCurrentDate(separator = '') {
+
+  let newDate = new Date()
+  let date = newDate.getDate();
+  let month = newDate.getMonth() + 1;
+  let year = newDate.getFullYear();
+
+  return `${year}${separator}${month < 10 ? `0${month}` : `${month}`}${separator}${date}`
+}
+
 // Mock function to simulate fetching content items from a CMS
 // Replace this with your actual data fetching logic
 async function fetchContentItems(tour: Tour) {  
-  return [
-    {
-      tourName: tour.elements.tourTitle.value,
-      description: tour.elements.tourIntro.value,
-      readerOfferIntro2: tour.elements.readerOfferIntro2.value,
-      readerOfferIntro3: tour.elements.readerOfferIntro3.value,
-      includes: tour.elements.untitledRichText.value,
-      duration: tour.elements.tourDurationInDays.value,
-      images: tour.elements.images.value.map((image) => image.url).join(';'),      
-      hotels: tour.elements.hotelS.linkedItems.map((hotel) => ({
-        hotelName: hotel.elements.name.value,
-        hoteldescription: hotel.elements.description.value,
-        hotelRating: hotel.elements.rating.value
-      }))
-    },
-    // ... more content items
-  ];
+  return {
+    tourName: tour.elements.tourTitle.value,
+    description: tour.elements.tourIntro.value,
+    includes: tour.elements.untitledRichText.value,
+    duration: tour.elements.tourDurationInDays.value,
+    // months: `${startMonth} - ${endMonth}`,
+    images: tour.elements.images.value.map((image) => image.url).join(';'),
+    hotelname: tour.elements.hotelS.linkedItems[0]?.elements.name.value,
+    hoteldescription: tour.elements.hotelS.linkedItems[0]?.elements.description.value,
+    hotelaccessibility: tour.elements.hotelS.linkedItems[0]?.elements.accessibilityInformation.value,
+    hotelrating: tour.elements.hotelS.linkedItems[0]?.elements.rating.value,
+    includedexcursion: tour.elements.includedExcursions.linkedItems[0]?.elements.destination.value,
+    includedexcursiondescription: tour.elements.includedExcursions.linkedItems[0]?.elements.description.value,
+    optionalexcursion: `${tour.elements.optionalExcursionS.linkedItems[0]?.elements.description.value} (${tour.elements.optionalExcursionS.linkedItems[0]?.elements.durationHalfDayFullDay.value})`,
+    optionalexcursiondescription: tour.elements.optionalExcursionS.linkedItems[0]?.elements.description.value,
+    optionalexcursionprice: tour.elements.optionalExcursionS.linkedItems[0]?.elements.priceInPp.value,
+    tourtype: tour.elements.tourType.value[0].name,
+    readeroffertwo: tour.elements.readerOfferIntro2.value,
+    readerofferthree: tour.elements.readerOfferIntro3.value
+  }
 }
