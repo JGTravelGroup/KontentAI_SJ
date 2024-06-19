@@ -98,8 +98,7 @@ export default async function handler(req, res) {
 
     // Set the headers to prompt download
     res.setHeader('Content-Type', 'text/csv');
-    //res.setHeader('Content-Disposition', `attachment; filename=${tour.elements.name.value}.csv`);
-    res.setHeader('Content-Disposition', `attachment; filename=${getCurrentDate()}-${tourCodename}.csv`);
+    res.setHeader('Content-Disposition', `attachment; filename=${tour.elements.name.value}.csv`);
 
     // Send the CSV file
     res.status(200).send(csv);
