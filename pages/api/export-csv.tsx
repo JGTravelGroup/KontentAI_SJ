@@ -104,7 +104,7 @@ export default async function handler(req, res) {
     res.status(200).send(csv);
   } catch (err) {
     console.log(err)
-    res.status(500).json({ error: 'Failed to generate CSV file' });
+    res.status(500).json({ error: 'Failed to generate CSV file' . err });
   }
 }
 
