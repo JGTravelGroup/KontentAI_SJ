@@ -98,7 +98,7 @@ export default async function handler(req, res) {
 
     // Set the headers to prompt download
     res.setHeader('Content-Type', 'text/csv');
-    res.setHeader('Content-Disposition', `attachment; filename=${tour.elements.name?.value}.csv`);
+    res.setHeader('Content-Disposition', `attachment; filename=${tour.system.codename}.csv`);
 
     // Send the CSV file
     res.status(200).send(csv);
@@ -121,7 +121,7 @@ export function getCurrentDate(separator = '') {
 
 // Mock function to simulate fetching content items from a CMS
 // Replace this with your actual data fetching logic
-async function fetchContentItems(tour: Tour) {  
+function fetchContentItems(tour: Tour) {  
   return {
     tourName: tour.elements.tourTitle?.value,
     description: tour.elements.tourIntro?.value,
