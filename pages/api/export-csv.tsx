@@ -98,7 +98,7 @@ export default async function handler(req, res) {
 
     // Set the headers to prompt download
     res.setHeader('Content-Type', 'text/csv');
-    res.setHeader('Content-Disposition', `attachment; filename=${tour.elements.name.value}.csv`);
+    res.setHeader('Content-Disposition', `attachment; filename=${tour.elements.name?.value}.csv`);
 
     // Send the CSV file
     res.status(200).send(csv);
@@ -123,23 +123,22 @@ export function getCurrentDate(separator = '') {
 // Replace this with your actual data fetching logic
 async function fetchContentItems(tour: Tour) {  
   return {
-    tourName: tour.elements.tourTitle.value,
-    description: tour.elements.tourIntro.value,
-    includes: tour.elements.untitledRichText.value,
-    duration: tour.elements.tourDurationInDays.value,
-    // months: `${startMonth} - ${endMonth}`,
-    images: tour.elements.images.value.map((image) => image.url).join(';'),
-    hotelname: tour.elements.hotelS.linkedItems[0]?.elements.name.value,
-    hoteldescription: tour.elements.hotelS.linkedItems[0]?.elements.description.value,
-    hotelaccessibility: tour.elements.hotelS.linkedItems[0]?.elements.accessibilityInformation.value,
-    hotelrating: tour.elements.hotelS.linkedItems[0]?.elements.rating.value,
-    includedexcursion: tour.elements.includedExcursions.linkedItems[0]?.elements.destination.value,
-    includedexcursiondescription: tour.elements.includedExcursions.linkedItems[0]?.elements.description.value,
-    optionalexcursion: `${tour.elements.optionalExcursionS.linkedItems[0]?.elements.description.value} (${tour.elements.optionalExcursionS.linkedItems[0]?.elements.durationHalfDayFullDay.value})`,
-    optionalexcursiondescription: tour.elements.optionalExcursionS.linkedItems[0]?.elements.description.value,
-    optionalexcursionprice: tour.elements.optionalExcursionS.linkedItems[0]?.elements.priceInPp.value,
-    tourtype: tour.elements.tourType.value[0].name,
-    readeroffertwo: tour.elements.readerOfferIntro2.value,
-    readerofferthree: tour.elements.readerOfferIntro3.value
+    tourName: tour.elements.tourTitle?.value,
+    description: tour.elements.tourIntro?.value,
+    includes: tour.elements.untitledRichText?.value,
+    duration: tour.elements.tourDurationInDays?.value,
+    images: tour.elements.images?.value.map((image) => image.url).join(';'),
+    hotelname: tour.elements.hotelS.linkedItems[0]?.elements.name?.value,
+    hoteldescription: tour.elements.hotelS.linkedItems[0]?.elements.description?.value,
+    hotelaccessibility: tour.elements.hotelS.linkedItems[0]?.elements.accessibilityInformation?.value,
+    hotelrating: tour.elements.hotelS.linkedItems[0]?.elements.rating?.value,
+    includedexcursion: tour.elements.includedExcursions.linkedItems[0]?.elements.destination?.value,
+    includedexcursiondescription: tour.elements.includedExcursions.linkedItems[0]?.elements.description?.value,
+    optionalexcursion: `${tour.elements.optionalExcursionS.linkedItems[0]?.elements.description?.value} (${tour.elements.optionalExcursionS.linkedItems[0]?.elements.durationHalfDayFullDay?.value})`,
+    optionalexcursiondescription: tour.elements.optionalExcursionS.linkedItems[0]?.elements.description?.value,
+    optionalexcursionprice: tour.elements.optionalExcursionS.linkedItems[0]?.elements.priceInPp?.value,
+    tourtype: tour.elements.tourType?.value[0]?.name,
+    readeroffertwo: tour.elements.readerOfferIntro2?.value,
+    readerofferthree: tour.elements.readerOfferIntro3?.value
   }
 }
