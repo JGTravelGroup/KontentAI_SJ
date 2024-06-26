@@ -144,9 +144,14 @@ function fetchContentItems(tour: Tour) {
     includedexcursion: tour.elements.includedExcursions.linkedItems.map((incexcursion) => incexcursion.elements.destination?.value).join('|'),
     //includedexcursiondescription: tour.elements.includedExcursions.linkedItems[0]?.elements.description?.value,
     includedexcursiondescription: tour.elements.includedExcursions.linkedItems.map((incexcursion) => incexcursion.elements.description?.value).join('|'),
-    optionalexcursion: `${tour.elements.optionalExcursionS.linkedItems[0]?.elements.description?.value} (${tour.elements.optionalExcursionS.linkedItems[0]?.elements.durationHalfDayFullDay?.value})`,
-    optionalexcursiondescription: tour.elements.optionalExcursionS.linkedItems[0]?.elements.description?.value,
-    optionalexcursionprice: tour.elements.optionalExcursionS.linkedItems[0]?.elements.priceInPp?.value,
+    
+    optionalexcursion: `${tour.elements.optionalExcursionS.linkedItems[0]?.elements.description?.value} (${tour.elements.optionalExcursionS.linkedItems[0]?.elements.durationHalfDayFullDay?.value})`,    
+    
+    //optionalexcursiondescription: tour.elements.optionalExcursionS.linkedItems[0]?.elements.description?.value,
+    optionalexcursiondescription: tour.elements.optionalExcursionS.linkedItems.map((optexcurs) => optexcurs.elements.description?.value).join('|'),
+    //optionalexcursionprice: tour.elements.optionalExcursionS.linkedItems[0]?.elements.priceInPp?.value,
+    optionalexcursionprice: tour.elements.optionalExcursionS.linkedItems.map((optexcurs) => optexcurs.elements.priceInPp?.value).join('|'),
+    
     tourtype: tour.elements.tourType?.value[0].name,
     readeroffertwo: tour.elements.readerOfferIntro2?.value,
     readerofferthree: tour.elements.readerOfferIntro3?.value
