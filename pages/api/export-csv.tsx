@@ -141,7 +141,7 @@ function fetchContentItems(tour: Tour) {
     //includedexcursiondescription: tour.elements.includedExcursions.linkedItems[0]?.elements.description?.value,
     includedexcursiondescription: tour.elements.includedExcursions.linkedItems.map((incexcursion) => incexcursion.elements.description?.value).join('|'), 
     
-    optionalexcursion: `${tour.elements.optionalExcursionS.linkedItems[0]?.elements.destination?.value} (${tour.elements.optionalExcursionS.linkedItems[0]?.elements.durationHalfDayFullDay?.value})`,    
+    optionalexcursion: tour.elements.optionalExcursionS.linkedItems.map((optexcursion) => `${optexcursion.elements.description?.value} (${optexcursion.elements.durationHalfDayFullDay?.value})`).join('|'), 
     
     //optionalexcursiondescription: tour.elements.optionalExcursionS.linkedItems[0]?.elements.description?.value,
     optionalexcursiondescription: tour.elements.optionalExcursionS.linkedItems.map((optexcurs) => optexcurs.elements.description?.value).join('|'),
