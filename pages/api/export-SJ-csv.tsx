@@ -21,72 +21,40 @@ export default async function handler(req, res) {
   // Define the fields for the CSV file
   const fields = [
     {
-      label: 'Tour Name',
-      value: 'tourName'
+      label: 'Tour Title',
+      value: 'tourTitle'
     },
     {
-      label: 'Description',
-      value: 'description'
+      label: 'Tour Intro',
+      value: 'tourIntro'
     }, 
     {
-      label: 'Includes',
-      value: 'includes'
+      label: 'Tour Highlights',
+      value: 'tourHighlights'
+    },
+    {
+      label: 'Tour Itinerary',
+      value: 'tourItinerary'
+    },
+    {
+      label: 'Tour Extra Info',
+      value: 'tourExtraInfo'
+    },    
+    {
+      label: 'Whats Included',
+      value: 'whatsIncluded'
+    },
+    {
+      label: 'Guest Quotes',
+      value: 'guestQuotes'
+    },
+    {
+      label: 'Tour Manager Box',
+      value: 'tourManagerBox'
     },
     {
       label: 'Images',
-      value: 'images'
-    },
-    {
-      label: 'Days',
-      value: 'duration'
-    },    
-    {
-      label: 'Hotel name',
-      value: 'hotelname'
-    },
-    {
-      label: 'Hotel description',
-      value: 'hoteldescription'
-    },
-    {
-      label: 'Hotel accessibility information',
-      value: 'hotelaccessibility'
-    },
-    {
-      label: 'Hotel rating',
-      value: 'hotelrating'
-    },    
-    {
-      label: 'Included Excursion',
-      value: 'includedexcursion'
-    }, 
-    {
-      label: 'Included excursion description',
-      value: 'includedexcursiondescription'
-    },    
-    {
-      label: 'Optional excursion',
-      value: 'optionalexcursion'
-    }, 
-    {
-      label: 'Optional excursion description',
-      value: 'optionalexcursiondescription'
-    }, 
-    {
-      label: 'Optional excursion price',
-      value: 'optionalexcursionprice'
-    },  
-    {
-      label: 'Tour Type',
-      value: 'tourtype'
-    },    
-    {
-      label: 'Reader Offer Intro 2',
-      value: 'readeroffertwo'
-    },   
-    {
-      label: 'Reader Offer Intro 3',
-      value: 'readerofferthree'
+      value: 'Images'
     }
   ];
 
@@ -104,7 +72,7 @@ export default async function handler(req, res) {
     res.status(200).send(csv);
   } catch (err) {
     console.log(err)
-    res.status(500).json({ error: 'Failed to generate single-tour CSV file' });
+    res.status(500).json({ error: 'Failed to generate single-tour SJ CSV file' });
   }
 }
 
@@ -123,33 +91,14 @@ export function getCurrentDate(separator = '') {
 // Replace this with your actual data fetching logic
 function fetchContentItems(tour: Tour) {  
   return {
-    tourName: tour.elements.tourTitle?.value,
-    description: tour.elements.tourIntro?.value,
-    includes: tour.elements.untitledRichText?.value,
-    duration: tour.elements.tourDurationInDays?.value,
-    images: tour.elements.images?.value.map((image) => image.url).join(';'),
-    hotelname: tour.elements.hotelS.linkedItems.map((hotel) => hotel.elements.name?.value).join('|'),
-    hoteldescription: tour.elements.hotelS.linkedItems.map((hotel) => hotel.elements.description?.value).join('|'),
-    hotelaccessibility: tour.elements.hotelS.linkedItems.map((hotel) => hotel.elements.accessibilityInformation?.value).join('|'), 
-    hotelrating: tour.elements.hotelS.linkedItems.map((hotel) => hotel.elements.rating?.value).join('|'), 
-
-    //includedexcursion: tour.elements.includedExcursions.linkedItems[0]?.elements.destination?.value, 
-    //includedexcursiondescription: tour.elements.includedExcursions.linkedItems[0]?.elements.description?.value, 
-
-    //includedexcursion: tour.elements.includedExcursions.linkedItems[0]?.elements.destination?.value,
-    includedexcursion: tour.elements.includedExcursions.linkedItems.map((incexcursion) => incexcursion.elements.destination?.value).join('|'),
-    //includedexcursiondescription: tour.elements.includedExcursions.linkedItems[0]?.elements.description?.value,
-    includedexcursiondescription: tour.elements.includedExcursions.linkedItems.map((incexcursion) => incexcursion.elements.description?.value).join('|'), 
-    
-    optionalexcursion: tour.elements.optionalExcursionS.linkedItems.map((optexcursion) => `${optexcursion.elements.destination?.value} (${optexcursion.elements.durationHalfDayFullDay?.value})`).join('|'), 
-    
-    //optionalexcursiondescription: tour.elements.optionalExcursionS.linkedItems[0]?.elements.description?.value,
-    optionalexcursiondescription: tour.elements.optionalExcursionS.linkedItems.map((optexcurs) => optexcurs.elements.description?.value).join('|'),
-    //optionalexcursionprice: tour.elements.optionalExcursionS.linkedItems[0]?.elements.priceInPp?.value,
-    optionalexcursionprice: tour.elements.optionalExcursionS.linkedItems.map((optexcurs) => optexcurs.elements.priceInPp?.value).join('|'),
-    
-    tourtype: tour.elements.tourType?.value[0]?.name,
-    readeroffertwo: tour.elements.readerOfferIntro2?.value,
-    readerofferthree: tour.elements.readerOfferIntro3?.value
+    tourTitle: tour.elements.tourTitle?.value,
+    tourIntro: tour.elements.tourIntro?.value,
+    tourHighlights: tour.elements.tourHighlights?.value,
+    tourItinerary: tour.elements.tourItinerary?.value,
+    tourExtraInfo: tour.elements.tourExtraInfo?.value,
+    whatsIncluded: tour.elements.whatsIncluded?.value,
+    guestQuotes: tour.elements.guestQuotes?.value,
+    tourManagerBox: tour.elements.tourManagerBox?.value, 
+    images: tour.elements.images?.value.map((image) => image.url).join(';') 
   }
 }
