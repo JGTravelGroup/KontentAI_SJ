@@ -13,7 +13,7 @@ export default async function handler(req, res) {
   }
   if(tourCodename != "")
   {
-      return res.status(400).json({ error: tourCodeName });
+      return res.status(400).json({ error: tourCodename });
   }
   const currentEnvId = defaultEnvId;
   const currentPreviewApiKey = defaultPreviewKey;
