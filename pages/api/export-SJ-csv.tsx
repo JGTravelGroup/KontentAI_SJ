@@ -17,8 +17,8 @@ export default async function handler(req, res) {
   // For example:
   const tour = await getTourByCodename({ envId: currentEnvId, previewApiKey: currentPreviewApiKey }, tourCodename, true);
   
-  //const contentItems = await fetchContentItems(tour);
-  const contentItems = "";
+  const contentItems = await fetchContentItems(tour_SJ);
+  //const contentItems = "";
 
   // Define the fields for the CSV file
   const fields = [
