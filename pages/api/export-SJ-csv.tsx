@@ -63,9 +63,7 @@ export function getCurrentDate(separator = '') {
 // Replace this with your actual data fetching logic
 function fetchContentItems(tour: Tour) {  
   return {
-    //tourTitle: tour.elements.tourTitle?.value,
-    //tourIntro: tour.elements.tourIntro?.value
-    tourTitle: 'test',
-    tourIntro: 'test2'
+    tourTitle: tour.elements.tourTitle?.value,
+    tourIntro: tour.elements.tourIntro?.value
   }
 }
