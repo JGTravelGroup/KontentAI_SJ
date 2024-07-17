@@ -27,31 +27,7 @@ export default async function handler(req, res) {
     {
       label: 'Tour Intro',
       value: 'tourIntro'
-    }, 
-    {
-      label: 'Tour Highlights',
-      value: 'tourHighlights'
-    },
-    {
-      label: 'Tour Itinerary',
-      value: 'tourItinerary'
-    },
-    {
-      label: 'Tour Extra Info',
-      value: 'tourExtraInfo'
-    },    
-    {
-      label: 'Whats Included',
-      value: 'whatsIncluded'
-    },
-    {
-      label: 'Guest Quotes',
-      value: 'guestQuotes'
-    },
-    {
-      label: 'Tour Manager Box',
-      value: 'tourManagerBox'
-    },
+    },  
     {
       label: 'Images',
       value: 'Images'
@@ -93,12 +69,6 @@ function fetchContentItems(tour: Tour) {
   return {
     tourTitle: tour.elements.tourTitle?.value,
     tourIntro: tour.elements.tourIntro?.value,
-    tourHighlights: tour.elements.tourHighlights?.value,
-    tourItinerary: tour.elements.tourItinerary?.value,
-    tourExtraInfo: tour.elements.tourExtraInfo?.value,
-    whatsIncluded: tour.elements.whatsIncluded?.value,
-    guestQuotes: tour.elements.guestQuotes?.value,
-    tourManagerBox: tour.elements.tourManagerBox?.value, 
     images: tour.elements.images?.value.map((image) => image.url).join(';') 
   }
 }
