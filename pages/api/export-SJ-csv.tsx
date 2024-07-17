@@ -65,6 +65,6 @@ function fetchContentItems(tour: Tour) {
   return {
     //tourTitle: tour.elements.tourTitle?.value,
     //tourIntro: tour.elements.tourIntro?.value
-    'test'
+    tourTitle: 'test'
   }
 }
