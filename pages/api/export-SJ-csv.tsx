@@ -2,7 +2,7 @@
 import { Parser } from 'json2csv';
 import { getTourByCodename } from '../../lib/services/kontentClient';
 import { defaultEnvId, defaultPreviewKey } from '../../lib/utils/env';
-import { Tour } from '../../models';
+import { Tour_SJ } from '../../models';
 import { formatDate, formatMonthsForLocale } from '../../lib/utils/dateTime';
 
 export default async function handler(req, res) {
