@@ -52,14 +52,14 @@ const CustomElementTest: NextPage<IProps> = ({ elementComponent }) => {
             case "export":
                 customElement = <ExportCustomElement element={element} context={context} handleSave={handleSave} value={value} />
                 break;    
-            case "export-sj":
+            case "export-SJ":
                 customElement = <ExportCustomElement_SJ element={element} context={context} handleSave={handleSave} value={value} />
                 break;  
             case "exportall":
                 customElement = <ExportToursCustomElement element={element} context={context} handleSave={handleSave} value={value} />
                 break;  
             default:
-                customElement = <div><p>Custom element no configured in code</p></div>
+                customElement = <div><p>Custom element not configured in code</p></div>
                 break;
         }
     } else {
