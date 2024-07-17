@@ -33,11 +33,14 @@ export default async function handler(req, res) {
   try {
     // Create a new parser instance with the fields
     const parser = new Parser({ fields });
+    
     // Convert data to CSV
-    //const csv = parser.parse(contentItems);
-    const csv = "test0";
+    const csv = parser.parse(contentItems);
+    //const csv = "test0";
+    
     // Set the headers to prompt download
     res.setHeader('Content-Type', 'text/csv');
+    
     //res.setHeader('Content-Disposition', `attachment; filename=${tour.system.codename}.csv`);
     res.setHeader('Content-Disposition', `attachment; filename=joshtest.csv`);
 
