@@ -39,12 +39,13 @@ export default async function handler(req, res) {
     // Set the headers to prompt download
     res.setHeader('Content-Type', 'text/csv');
     res.setHeader('Content-Disposition', `attachment; filename=${tour.system.codename}.csv`);
+    res.setHeader('Content-Disposition', `attachment; filename=joshtest.csv`);
 
     // Send the CSV file
     res.status(200).send(csv);
   } catch (err) {
     console.log(err)
-    res.status(500).json({ error: 'Failed to generate single-tour SJ CSV file' });
+    res.status(500).json({ error: 'Failed to generate single-tour SJ CSV file' . err });
   }
 }
 
