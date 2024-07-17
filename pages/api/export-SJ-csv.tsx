@@ -16,7 +16,9 @@ export default async function handler(req, res) {
   // This should return an array of content items with linked items
   // For example:
   const tour = await getTourByCodename({ envId: currentEnvId, previewApiKey: currentPreviewApiKey }, tourCodename, true);
-  const contentItems = await fetchContentItems(tour);
+  
+  //const contentItems = await fetchContentItems(tour);
+  const contentItems = "test000";
 
   // Define the fields for the CSV file
   const fields = [
@@ -35,8 +37,7 @@ export default async function handler(req, res) {
     const parser = new Parser({ fields });
     
     // Convert data to CSV
-    const csv = parser.parse(contentItems);
-    //const csv = "test0";
+    const csv = parser.parse(contentItems); 
     
     // Set the headers to prompt download
     res.setHeader('Content-Type', 'text/csv');
