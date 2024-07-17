@@ -16,7 +16,7 @@ export default async function handler(req, res) {
   // This should return an array of content items with linked items
   // For example:
   const tour = await getTourByCodename({ envId: currentEnvId, previewApiKey: currentPreviewApiKey }, tourCodename, true);
-  const contentItems = await fetchContentItems(tour);
+  //const contentItems = await fetchContentItems(tour);
 
   // Define the fields for the CSV file
   const fields = [
@@ -34,8 +34,8 @@ export default async function handler(req, res) {
     // Create a new parser instance with the fields
     const parser = new Parser({ fields });
     // Convert data to CSV
-    const csv = parser.parse(contentItems);
-
+    //const csv = parser.parse(contentItems);
+    const csv = "test0";
     // Set the headers to prompt download
     res.setHeader('Content-Type', 'text/csv');
     res.setHeader('Content-Disposition', `attachment; filename=${tour.system.codename}.csv`);
@@ -63,7 +63,9 @@ export function getCurrentDate(separator = '') {
 // Replace this with your actual data fetching logic
 function fetchContentItems(tour: Tour) {  
   return {
-    tourTitle: tour.elements.tourTitle?.value,
-    tourIntro: tour.elements.tourIntro?.value
+    //tourTitle: tour.elements.tourTitle?.value,
+    //tourIntro: tour.elements.tourIntro?.value
+    tourTitle: "test1",
+    tourIntro: "test2"
   }
 }
