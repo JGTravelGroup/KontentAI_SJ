@@ -5,8 +5,6 @@ import Head from "next/head";
 import { ExportCustomElement } from "../../components/custom-elements/export";
 import { ExportToursCustomElement } from "../../components/custom-elements/export-tours";
 
-import { ExportCustomElement-SJ } from "../../components/custom-elements/export-SJ";
-
 interface IProps {
     elementComponent: string
 }
@@ -52,9 +50,6 @@ const CustomElementTest: NextPage<IProps> = ({ elementComponent }) => {
             case "export":
                 customElement = <ExportCustomElement element={element} context={context} handleSave={handleSave} value={value} />
                 break;  
-            case "export-SJ":
-                customElement = <ExportCustomElement-SJ element={element} context={context} handleSave={handleSave} value={value} />
-                break;
             case "exportall":
                 customElement = <ExportToursCustomElement element={element} context={context} handleSave={handleSave} value={value} />
                 break;  
@@ -86,8 +81,7 @@ export const getStaticPaths: GetStaticPaths = async (params) => {
     return {
         paths: [
             '/ce/export',
-            '/ce/exportall',
-            '/ce/expor-SJ'
+            '/ce/exportall'
         ],
         fallback: false
     }
