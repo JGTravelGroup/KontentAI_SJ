@@ -27,10 +27,6 @@ export default async function handler(req, res) {
     {
       label: 'Tour Intro',
       value: 'tourIntro'
-    },  
-    {
-      label: 'Images',
-      value: 'Images'
     }
   ];
 
@@ -68,7 +64,6 @@ export function getCurrentDate(separator = '') {
 function fetchContentItems(tour: Tour) {  
   return {
     tourTitle: tour.elements.tourTitle?.value,
-    tourIntro: tour.elements.tourIntro?.value,
-    images: tour.elements.images?.value.map((image) => image.url).join(';') 
+    tourIntro: tour.elements.tourIntro?.value
   }
 }
