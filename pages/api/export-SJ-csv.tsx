@@ -38,7 +38,7 @@ export default async function handler(req, res) {
     const csv = "test0";
     // Set the headers to prompt download
     res.setHeader('Content-Type', 'text/csv');
-    res.setHeader('Content-Disposition', `attachment; filename=${tour.system.codename}.csv`);
+    //res.setHeader('Content-Disposition', `attachment; filename=${tour.system.codename}.csv`);
     res.setHeader('Content-Disposition', `attachment; filename=joshtest.csv`);
 
     // Send the CSV file
