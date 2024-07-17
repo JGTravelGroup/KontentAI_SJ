@@ -66,7 +66,7 @@ export function getCurrentDate(separator = '') {
 
 // Mock function to simulate fetching content items from a CMS
 // Replace this with your actual data fetching logic
-function fetchContentItems(tour: Tour) {  
+function fetchContentItems(tour: Tour_SJ) {  
   return {
     tourTitle: tour.elements.tourTitle?.value,
     tourIntro: tour.elements.tourIntro?.value
