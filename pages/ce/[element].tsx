@@ -87,7 +87,7 @@ export const getStaticPaths: GetStaticPaths = async (params) => {
         paths: [
             '/ce/export',
             '/ce/exportall',
-            '/ce/expor-SJ',
+            '/ce/expor-SJ'
         ],
         fallback: false
     }
