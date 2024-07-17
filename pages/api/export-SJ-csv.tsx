@@ -11,7 +11,6 @@ export default async function handler(req, res) {
   if (typeof tourCodename !== "string") {
     return res.status(400).json({ error: "You have to provide 'codename' query parameter with the tour's codename." });
   }
-  
   const currentEnvId = defaultEnvId;
   const currentPreviewApiKey = defaultPreviewKey;
   // This should return an array of content items with linked items
