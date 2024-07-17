@@ -16,7 +16,7 @@ export default async function handler(req, res) {
   // This should return an array of content items with linked items
   // For example:
   const tour = await getTourByCodename({ envId: currentEnvId, previewApiKey: currentPreviewApiKey }, tourCodename, true);
-  //const contentItems = await fetchContentItems(tour);
+  const contentItems = await fetchContentItems(tour);
 
   // Define the fields for the CSV file
   const fields = [
