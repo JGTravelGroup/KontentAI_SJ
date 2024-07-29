@@ -3,9 +3,7 @@ import React, { useEffect, useState } from "react";
 import { useResizeDetector } from "react-resize-detector";
 import Head from "next/head";
 import { ExportCustomElement } from "../../components/custom-elements/export";
-import { ExportToursCustomElement } from "../../components/custom-elements/export-tours";
-
-import { ExportCustomElement_SJ } from "../../components/custom-elements/export-SJ";
+import { ExportToursCustomElement } from "../../components/custom-elements/export-tours";  
 
 interface IProps {
     elementComponent: string
@@ -51,10 +49,7 @@ const CustomElementTest: NextPage<IProps> = ({ elementComponent }) => {
         switch (elementComponent) {    
             case "export":
                 customElement = <ExportCustomElement element={element} context={context} handleSave={handleSave} value={value} />
-                break;    
-            case "export-SJ":
-                customElement = <ExportCustomElement_SJ element={element} context={context} handleSave={handleSave} value={value} />
-                break;  
+                break;     
             case "exportall":
                 customElement = <ExportToursCustomElement element={element} context={context} handleSave={handleSave} value={value} />
                 break;  
