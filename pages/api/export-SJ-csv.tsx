@@ -32,13 +32,13 @@ export default async function handler(req, res) {
   try {
     // Create a new parser instance with the fields
     const parser = new Parser({ fields });
-    
+
     // Convert data to CSV
-    const csv = parser.parse(contentItems); 
-    
+    const csv = parser.parse(contentItems);
+
     // Set the headers to prompt download
     res.setHeader('Content-Type', 'text/csv');
-    
+
     res.setHeader('Content-Disposition', `attachment; filename=${tour.system.codename}.csv`);
 
     // Send the CSV file
@@ -62,7 +62,7 @@ export function getCurrentDate(separator = '') {
 
 // Mock function to simulate fetching content items from a CMS
 // Replace this with your actual data fetching logic
-function fetchContentItems(tour: TourBrightwater) {  
+function fetchContentItems(tour: TourBrightwater) {
   return {
     tourTitle: tour.elements.tourTitle?.value,
     tourIntro: tour.elements.tourIntro?.value
