@@ -1,6 +1,6 @@
 import { DeliveryError, IContentItem, camelCasePropertyNameResolver, createDeliveryClient } from '@kontent-ai/delivery-sdk';
 import { defaultEnvId, defaultPreviewKey, deliveryApiDomain, deliveryPreviewApiDomain } from '../utils/env';
-import { ExportModule, Tour, contentTypes } from '../../models';
+import { contentTypes, ExportModuleBrightwater, TourBrightwater } from '../../models';
 const sourceTrackingHeaderName = 'X-KC-SOURCE';
 const defaultDepth = 10;
 
@@ -118,8 +118,8 @@ export const getItemByUrlSlug = <ItemType extends IContentItem>(config: ClientCo
 
 export const getTourByCodename = (config: ClientConfig, tourCodename: string, usePreview: boolean) =>
   getDeliveryClient(config)
-    .items<Tour>()
-    .type(contentTypes.tour.codename)
+    .items<TourBrightwater>()
+    .type(contentTypes.tour___andante__copy_.codename)
     .limitParameter(1)
     .equalsFilter(`system.codename`, tourCodename)
     .depthParameter(defaultDepth)
@@ -131,7 +131,7 @@ export const getTourByCodename = (config: ClientConfig, tourCodename: string, us
       if (res.response.status === 404) {
         return null;
       } ""
-      return res.data.items[0] as Tour
+      return res.data.items[0] as TourBrightwater
     })
     .catch((error) => {
       debugger;
@@ -149,8 +149,8 @@ export const getTourByCodename = (config: ClientConfig, tourCodename: string, us
 
 export const getTourExportByCodename = (config: ClientConfig, tourCodename: string, usePreview: boolean) =>
   getDeliveryClient(config)
-    .items<ExportModule>()
-    .type(contentTypes.export_module.codename)
+    .items<ExportModuleBrightwater>()
+    .type(contentTypes.export_module___andante__copy_.codename)
     .limitParameter(1)
     .equalsFilter(`system.codename`, tourCodename)
     .depthParameter(defaultDepth)
@@ -162,7 +162,7 @@ export const getTourExportByCodename = (config: ClientConfig, tourCodename: stri
       if (res.response.status === 404) {
         return null;
       } ""
-      return res.data.items[0] as ExportModule
+      return res.data.items[0] as ExportModuleBrightwater
     })
     .catch((error) => {
       debugger;
@@ -180,8 +180,8 @@ export const getTourExportByCodename = (config: ClientConfig, tourCodename: stri
 
 export const getAllTours = (config: ClientConfig, usePreview: boolean) =>
   getDeliveryClient(config)
-    .items<Tour>()
-    .type(contentTypes.tour.codename)
+    .items<TourBrightwater>()
+    .type(contentTypes.tour___andante__copy_.codename)
     .queryConfig({
       usePreviewMode: usePreview
     })
