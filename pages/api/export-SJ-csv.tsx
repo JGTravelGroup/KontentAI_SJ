@@ -48,7 +48,6 @@ export default async function handler(req, res) {
   }
 }
 
-
 export function getCurrentDate(separator = '') {
   let newDate = new Date()
   let date = newDate.getDate();
