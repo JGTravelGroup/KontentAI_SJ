@@ -38,7 +38,6 @@ export default async function handler(req, res) {
 
     // Set the headers to prompt download
     res.setHeader('Content-Type', 'text/csv');
-
     res.setHeader('Content-Disposition', `attachment; filename=${tour.system.codename}.csv`);
 
     // Send the CSV file
@@ -51,7 +50,6 @@ export default async function handler(req, res) {
 
 
 export function getCurrentDate(separator = '') {
-
   let newDate = new Date()
   let date = newDate.getDate();
   let month = newDate.getMonth() + 1;
