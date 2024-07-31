@@ -26,6 +26,26 @@ export default async function handler(req, res) {
     {
       label: 'Tour Intro',
       value: 'tourIntro'
+    },
+    {
+      label: 'Tour Highlights',
+      value: 'tourHighlights'
+    },
+    {
+      label: 'Tour Itinerary',
+      value: 'tourItinerary'
+    },
+    {
+      label: 'Tour Extra Info',
+      value: 'tourExtraInfo'
+    },
+    {
+      label: 'Whats Included',
+      value: 'whatsIncluded'
+    },
+    {
+      label: 'Guest Quotes',
+      value: 'guestQuotes'
     }
   ];
 
@@ -62,6 +82,11 @@ export function getCurrentDate(separator = '') {
 function fetchContentItems(tour: TourBrightwater) {
   return {
     tourTitle: tour.elements.tourTitle?.value,
-    tourIntro: tour.elements.tourIntro?.value
+    tourIntro: tour.elements.tourIntro?.value,
+    tourHighlights: tour.elements.tourHighlights?.value,
+    tourItinerary: tour.elements.tourItinerary?.value,
+    tourExtraInfo: tour.elements.tourExtraInfo?.value,
+    whatsIncluded: tour.elements.whatSIncluded?.value,
+    guestQuotes: tour.elements.guestQuotes?.value
   }
 }
