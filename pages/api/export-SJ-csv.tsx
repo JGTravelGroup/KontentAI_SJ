@@ -50,6 +50,10 @@ export default async function handler(req, res) {
     {
       label: 'Tour Manager Box',
       value: 'tourManagerBox'
+    },
+    {
+      label: 'Images',
+      value: 'images'
     }
   ];
 
@@ -92,6 +96,7 @@ function fetchContentItems(tour: TourBrightwater) {
     tourExtraInfo: tour.elements.tourExtraInfo?.value,
     whatsIncluded: tour.elements.whatSIncluded?.value,
     guestQuotes: tour.elements.guestQuotes?.value,
-    tourManagerBox: tour.elements.guides?.value
+    tourManagerBox: tour.elements.guides?.value,
+    images: tour.elements.images?.value.map((image) => image.url).join(';')
   }
 }
