@@ -46,6 +46,10 @@ export default async function handler(req, res) {
     {
       label: 'Guest Quotes',
       value: 'guestQuotes'
+    },
+    {
+      label: 'Tour Manager Box',
+      value: 'tourManagerBox'
     }
   ];
 
@@ -87,6 +91,7 @@ function fetchContentItems(tour: TourBrightwater) {
     tourItinerary: tour.elements.tourItinerary?.value,
     tourExtraInfo: tour.elements.tourExtraInfo?.value,
     whatsIncluded: tour.elements.whatSIncluded?.value,
-    guestQuotes: tour.elements.guestQuotes?.value
+    guestQuotes: tour.elements.guestQuotes?.value,
+    tourManagerBox: tour.elements.guides?.value
   }
 }
