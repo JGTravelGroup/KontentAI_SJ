@@ -24,8 +24,16 @@ export default async function handler(req, res) {
       value: 'tourTitle'
     },
     {
+      label: 'Tour Subheading',
+      value: 'tourSubheading'
+    },
+    {
       label: 'Tour Intro',
       value: 'tourIntro'
+    },
+    {
+      label: 'Tour Summary',
+      value: 'tourSummary'
     },
     {
       label: 'Tour Highlights',
@@ -90,7 +98,9 @@ export function getCurrentDate(separator = '') {
 function fetchContentItems(tour: TourAndante) {
   return {
     tourTitle: tour.elements.tourTitle?.value,
+    tourSubheading: tour.elements.tourSubheading?.value,
     tourIntro: tour.elements.tourIntro?.value,
+    tourSummary: tour.elements.tourSummary?.value,
     tourHighlights: tour.elements.tourHighlights?.value,
     tourItinerary: tour.elements.tourItinerary?.value,
     tourExtraInfo: tour.elements.tourExtraInfo?.value,
