@@ -1,6 +1,6 @@
 import { DeliveryError, IContentItem, camelCasePropertyNameResolver, createDeliveryClient } from '@kontent-ai/delivery-sdk';
 import { defaultEnvId, defaultPreviewKey, deliveryApiDomain, deliveryPreviewApiDomain } from '../utils/env';
-import { contentTypes, ExportModuleBrightwater, TourBrightwater } from '../../models';
+import { contentTypes, ExportModuleBrightwater, TourAndante, TourBrightwater } from '../../models';
 const sourceTrackingHeaderName = 'X-KC-SOURCE';
 const defaultDepth = 10;
 
@@ -132,6 +132,37 @@ export const getTourByCodename = (config: ClientConfig, tourCodename: string, us
         return null;
       } ""
       return res.data.items[0] as TourBrightwater
+    })
+    .catch((error) => {
+      debugger;
+      if (error instanceof DeliveryError) {
+        // delivery specific error (e.g. item with codename not found...)
+        console.error(error.message, error.errorCode);
+        return null;
+      } else {
+        // some other error
+        console.error("HTTP request error", error);
+        // throw error;
+        return null;
+      }
+    });
+
+export const getTourAndanteByCodename = (config: ClientConfig, tourCodename: string, usePreview: boolean) =>
+  getDeliveryClient(config)
+    .items<TourAndante>()
+    .type(contentTypes.tour___andante.codename)
+    .limitParameter(1)
+    .equalsFilter(`system.codename`, tourCodename)
+    .depthParameter(defaultDepth)
+    .queryConfig({
+      usePreviewMode: usePreview,
+    })
+    .toPromise()
+    .then(res => {
+      if (res.response.status === 404) {
+        return null;
+      } ""
+      return res.data.items[0] as TourAndante
     })
     .catch((error) => {
       debugger;

@@ -24,7 +24,7 @@ export type TourBrightwater = IContentItem<{
     guestQuotes: Elements.RichTextElement;
 
     /**
-     * Tour Manager Box (rich_text)
+     * Guides (rich_text)
      * Required: false
      * Id: 132738a4-b8cf-4544-9c96-8563ea549a41
      * Codename: guides

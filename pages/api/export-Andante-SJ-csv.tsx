@@ -1,6 +1,6 @@
 // pages/api/export-to-csv.js
 import { Parser } from 'json2csv';
-import { getTourByCodename } from '../../lib/services/kontentClient';
+import { getTourAndanteByCodename } from '../../lib/services/kontentClient';
 import { defaultEnvId, defaultPreviewKey } from '../../lib/utils/env';
 import { TourAndante } from '../../models';
 
@@ -14,7 +14,7 @@ export default async function handler(req, res) {
   const currentPreviewApiKey = defaultPreviewKey;
   // This should return an array of content items with linked items
   // For example:
-  const tour = await getTourByCodename({ envId: currentEnvId, previewApiKey: currentPreviewApiKey }, tourCodename, true);
+  const tour = await getTourAndanteByCodename({ envId: currentEnvId, previewApiKey: currentPreviewApiKey }, tourCodename, true);
   const contentItems = await fetchContentItems(tour);
 
   // Define the fields for the CSV file

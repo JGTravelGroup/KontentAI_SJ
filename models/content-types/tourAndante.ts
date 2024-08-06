@@ -104,7 +104,7 @@ export type TourAndante = IContentItem<{
     tourTitle: Elements.RichTextElement;
 
     /**
-     * Untitled custom element (custom)
+     * Export (custom)
      * Required: false
      * Id: 06a35080-26d6-4c3d-9dd1-d101d5a22caa
      * Codename: untitled_custom_element

@@ -82,6 +82,18 @@ export const contentTypes = {
         name: 'Tour - Andante',
         elements: {
             /**
+             * Export (custom)
+             */
+            untitled_custom_element: {
+                codename: 'untitled_custom_element',
+                id: '06a35080-26d6-4c3d-9dd1-d101d5a22caa',
+                externalId: undefined,
+                name: 'Export',
+                required: false,
+                type: 'custom'
+            },
+
+            /**
              * Guest Quotes (rich_text)
              */
             guest_quotes: {
@@ -226,18 +238,6 @@ export const contentTypes = {
             },
 
             /**
-             * Untitled custom element (custom)
-             */
-            untitled_custom_element: {
-                codename: 'untitled_custom_element',
-                id: '06a35080-26d6-4c3d-9dd1-d101d5a22caa',
-                externalId: undefined,
-                name: 'Untitled custom element',
-                required: false,
-                type: 'custom'
-            },
-
-            /**
              * What s Included (rich_text)
              */
             what_s_included: {
@@ -280,6 +280,18 @@ export const contentTypes = {
                 id: 'c804fc71-19cd-4891-a880-0d74e62c3c65',
                 externalId: undefined,
                 name: 'Guest Quotes',
+                required: false,
+                type: 'rich_text'
+            },
+
+            /**
+             * Guides (rich_text)
+             */
+            guides: {
+                codename: 'guides',
+                id: '132738a4-b8cf-4544-9c96-8563ea549a41',
+                externalId: undefined,
+                name: 'Guides',
                 required: false,
                 type: 'rich_text'
             },
@@ -365,18 +377,6 @@ export const contentTypes = {
                 externalId: undefined,
                 name: 'Tour Itinerary',
                 required: true,
-                type: 'rich_text'
-            },
-
-            /**
-             * Tour Manager Box (rich_text)
-             */
-            guides: {
-                codename: 'guides',
-                id: '132738a4-b8cf-4544-9c96-8563ea549a41',
-                externalId: undefined,
-                name: 'Tour Manager Box',
-                required: false,
                 type: 'rich_text'
             },
 
