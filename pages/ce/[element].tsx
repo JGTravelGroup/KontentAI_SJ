@@ -4,7 +4,7 @@ import { useResizeDetector } from "react-resize-detector";
 import Head from "next/head";
 import { ExportCustomElement } from "../../components/custom-elements/export";
 import { ExportToursCustomElement } from "../../components/custom-elements/export-tours";
-import { ExportAndanteCustomElement } from "../../components/custom-elements/export-Andante";
+import { ExportAndanteCustomElement } from "../../components/custom-elements/export-andante";
 
 interface IProps {
     elementComponent: string
