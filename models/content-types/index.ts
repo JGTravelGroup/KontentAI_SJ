@@ -1,5 +1,4 @@
-export * from './exportModuleAndante';
-export * from './exportModuleBrightwater';
+export * from './exportModule';
 export * from './tourAndante';
 export * from './tourBrightwater';
 export * from './tourManagerGuideLecturerBiography';

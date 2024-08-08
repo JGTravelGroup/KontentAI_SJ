@@ -3,13 +3,13 @@
  */
 export const contentTypes = {
     /**
-     * Export Module   Andante
+     * Export Module
      */
-    export_module___andante: {
-        codename: 'export_module___andante',
+    export_module: {
+        codename: 'export_module',
         id: 'a12955a6-33ac-404a-b098-695ef274e9fb',
         externalId: undefined,
-        name: 'Export Module - Andante',
+        name: 'Export Module',
         elements: {
             /**
              * Export to CSV (custom)
@@ -29,41 +29,6 @@ export const contentTypes = {
             tours_to_export: {
                 codename: 'tours_to_export',
                 id: '3003c448-101a-4f18-80ba-063b11ee43b7',
-                externalId: undefined,
-                name: 'Tours to Export',
-                required: false,
-                type: 'modular_content'
-            }
-        }
-    },
-
-    /**
-     * Export Module   Brightwater
-     */
-    export_module___andante__copy_: {
-        codename: 'export_module___andante__copy_',
-        id: '46cdf8d6-a184-44e2-8677-9642b322dce2',
-        externalId: undefined,
-        name: 'Export Module - Brightwater',
-        elements: {
-            /**
-             * Export to CSV (custom)
-             */
-            export_to_csv: {
-                codename: 'export_to_csv',
-                id: '777ca70c-cacf-4ae8-b05f-ce803595d17d',
-                externalId: undefined,
-                name: 'Export to CSV',
-                required: false,
-                type: 'custom'
-            },
-
-            /**
-             * Tours to Export (modular_content)
-             */
-            tours_to_export: {
-                codename: 'tours_to_export',
-                id: 'dc08370d-6ece-48b1-82db-ebc147ed0419',
                 externalId: undefined,
                 name: 'Tours to Export',
                 required: false,

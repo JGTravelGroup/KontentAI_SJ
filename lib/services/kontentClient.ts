@@ -1,6 +1,6 @@
 import { DeliveryError, IContentItem, camelCasePropertyNameResolver, createDeliveryClient } from '@kontent-ai/delivery-sdk';
 import { defaultEnvId, defaultPreviewKey, deliveryApiDomain, deliveryPreviewApiDomain } from '../utils/env';
-import { contentTypes, ExportModuleBrightwater, TourAndante, TourBrightwater } from '../../models';
+import { contentTypes, TourAndante, TourBrightwater, ExportModule } from '../../models';
 const sourceTrackingHeaderName = 'X-KC-SOURCE';
 const defaultDepth = 10;
 
@@ -180,8 +180,8 @@ export const getTourAndanteByCodename = (config: ClientConfig, tourCodename: str
 
 export const getTourExportByCodename = (config: ClientConfig, tourCodename: string, usePreview: boolean) =>
   getDeliveryClient(config)
-    .items<ExportModuleBrightwater>()
-    .type(contentTypes.export_module___andante__copy_.codename)
+    .items<ExportModule>()
+    .type(contentTypes.export_module.codename)
     .limitParameter(1)
     .equalsFilter(`system.codename`, tourCodename)
     .depthParameter(defaultDepth)
@@ -193,7 +193,7 @@ export const getTourExportByCodename = (config: ClientConfig, tourCodename: stri
       if (res.response.status === 404) {
         return null;
       } ""
-      return res.data.items[0] as ExportModuleBrightwater
+      return res.data.items[0] as ExportModule
     })
     .catch((error) => {
       debugger;
