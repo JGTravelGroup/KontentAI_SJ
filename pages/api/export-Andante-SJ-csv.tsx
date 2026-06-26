@@ -14,8 +14,19 @@ export default async function handler(req, res) {
   const currentPreviewApiKey = defaultPreviewKey;
   // This should return an array of content items with linked items
   // For example:
-  const tour = await getTourAndanteByCodename({ envId: currentEnvId, previewApiKey: currentPreviewApiKey }, tourCodename, true);
-  const contentItems = await fetchContentItems(tour);
+  let tour: TourAndante | null;
+  try {
+    tour = await getTourAndanteByCodename({ envId: currentEnvId, previewApiKey: currentPreviewApiKey }, tourCodename, true);
+  } catch (err) {
+    console.error(err);
+    return res.status(500).json({ error: 'Failed to fetch tour from Kontent.ai.' });
+  }
+
+  if (!tour) {
+    return res.status(404).json({ error: `Tour with codename '${tourCodename}' was not found.` });
+  }
+
+  const contentItems = fetchContentItems(tour);
 
   // Define the fields for the CSV file
   const fields = [

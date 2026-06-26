@@ -150,7 +150,6 @@ export const getTourByCodename = (config: ClientConfig, tourCodename: string, us
 export const getTourAndanteByCodename = (config: ClientConfig, tourCodename: string, usePreview: boolean) =>
   getDeliveryClient(config)
     .items<TourAndante>()
-    .type(contentTypes.tour___andante.codename)
     .limitParameter(1)
     .equalsFilter(`system.codename`, tourCodename)
     .depthParameter(defaultDepth)
